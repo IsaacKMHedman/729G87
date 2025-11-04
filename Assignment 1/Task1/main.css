@@ -25,6 +25,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1em;
     align-items: center;
     margin: 1em
 }
@@ -51,13 +52,6 @@ Hade inte förvånat mig om detta inte var ok
 .card.a .box{
     left: 1em;
     bottom: 1em;
-    position: absolute;
-}
-.card.a .box.b{
-    margin-left: 3em;
-}
-.card.a .box.c{
-    margin-left: 6em;
 }
 
 .card .box.a{
