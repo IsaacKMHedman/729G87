@@ -15,6 +15,7 @@ body{
     position: relative;
     background-color:aliceblue;
 }
+
 .card{
     width: 12em;
     height: 18em;
@@ -24,59 +25,59 @@ body{
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1em;
-    align-items: center;
-    margin: 1em
+    margin: 1em;
 }
-
 .card .background p{
     margin: 0;
     font-size: 56px;
     font-weight: 600;
-    line-height: 100%;
 }
+
+
+.card .background{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0em;
+    background-color: grey;
+}
+
+.card.a, .card.b{
+    box-sizing:border-box;
+    padding: 1em;
+}
+
+.card.b .box{
+    align-self : flex-end;
+}
+
 .box{
+    display: flex;
     height: 2em;
     width: 2em;
-    background-color: gray;
-    text-align: center;
+    background-color: pink;
+    align-items: center;   
+    justify-content: center;
+
 }
-.card .box p{
-    margin: 0; 
-    line-height: 2em;
-}
-/*
-Hade inte förvånat mig om detta inte var ok
-*/
+
 .card.a .box{
-    left: 1em;
-    bottom: 1em;
+    align-self: flex-end;
 }
 
 .card .box.a{
     background-color: purple;
 }
-.card.b .box{
-    right: 1em;
-    bottom: 1em;
-    position: absolute;
-}
 
-.card.b .box.b{
-    margin-bottom: 3em;
-    right: -0.5em;
-}
-
-.card.b .box.c{
-    margin-bottom: 6em;
-}
 
 .fixed{
     position: fixed;
     width: 10em;
     height: 10em;
-    display: grid; place-items: center;
+    place-items: center;
 }
 .bottom{
     bottom: 0em;
@@ -87,53 +88,3 @@ Hade inte förvånat mig om detta inte var ok
 .right{
     right: 0em;
 }
-
-
-/*
-.card{
-    background-color: blue;
-    height: 18em;
-    width: 12em;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-.wrapper{
-    width: 48em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    column-gap: 1em;
-    row-gap: 1em;
-    border: 1px solid black;
-    background-color: aqua;
-    padding: 2em;
-
-}
-.box{
-    border: 1px solid black;
-    width: 3em;
-    height: 3em;
-    line-height: 3em;
-    text-align: center;
-}
-/*
-Ja här kanske man inte ska sätta line-height sådär men vafan?????
-
-.bottom{
-    text-align: center;
-    line-height: 10em;
-    position: absolute;
-    bottom: 0%;
-    height: 10em;
-    width: 10em;
-    background-color: grey;
-}
-.left{
-    left: 0%;
-}
-.right{
-    right: 0%;
-}
-
-
-*/
