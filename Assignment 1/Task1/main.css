@@ -77,8 +77,6 @@ body{
     flex-direction: column;
     justify-content: space-around;
 }
-
-
 .card.e{
     display: flex;
     flex-wrap: wrap;
