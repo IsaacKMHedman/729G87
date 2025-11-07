@@ -77,6 +77,9 @@ body{
     flex-direction: column;
     justify-content: space-around;
 }
+.card.d .box{
+    transform: rotate(90deg);
+}
 .card.e{
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +89,7 @@ body{
 .card.e .background{
     position: static;
     order: 2;
-    flex: 1 0 100%;
+
 }
 .card.e .box.a{
     border-top-left-radius: inherit;
