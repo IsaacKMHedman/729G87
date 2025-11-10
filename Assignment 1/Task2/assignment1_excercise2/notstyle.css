@@ -1,0 +1,73 @@
+body{
+    background-image: url("images/greyzz.png");
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+#wrapper{
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    width: 60em;
+}
+
+.post-description{
+    width: 40em;
+    justify-self: center;
+    align-self: center;
+}
+
+#header {
+    width: 100%;
+    height: 13em;
+    background-image: url("images/header.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-position: center 80%;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding-left: 1em;
+}
+
+#header h1{
+    width: 60%;
+}
+
+#posts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-image img{
+    width: 40em;
+}
+
+.image-post{
+    border: 1px solid black;
+    width: 40em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em;
+    border-radius: 1%;
+    box-shadow: 0 3px 10px rgb(0 0 0 /0.5);
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.post-title{
+    align-self: flex-start;
+    position: relative;
+}

@@ -1,73 +1,78 @@
-body{
-    background-image: url("images/greyzz.png");
+/*sätter sidan till en flexbox och centrerar innehållet*/
+/*sätter även bakgrunden till den gråa bilden och sätter typsnittet till Arial som default*/
+body {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("images/greyzz.png");
 }
 
-#wrapper{
-    display: flex;
+/*gör wrappern till en flexbox, sätter bakgrunden till vit*/
+/*sätter bakgrunden till en rimlig bredd, använder flex-wrap för att hantera hur innehållet placeras och centrerar innehållet*/
+#wrapper {
     background-color: white;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-self: center;
     width: 60em;
+    align-items: center;
 }
 
-.post-description{
-    width: 40em;
-    justify-self: center;
-    align-self: center;
-}
-
+/*bredden ärvs från wrappern och höjden sätts till ett rimligt värde*/
+/*sätter bakgrunden till den valda bilden och justerar hur mycket av bilden som visas genom background-position och size*/
+/*placerar texten på headern via flex-box till vänster och botten, med en manuell padding från vänster*/
 #header {
-    width: 100%;
-    height: 13em;
+    width: inherit;
+    height: 23em;
     background-image: url("images/header.jpeg");
-    background-position: center;
-    background-size: cover;
     background-position: center 80%;
-    color: white;
-    font-size: 30px;
+    background-size: cover;
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-end;
-    box-sizing: border-box;
-    padding-left: 1em;
+    justify-content: flex-start;
+    padding-left: 2.5em;
 }
 
-#header h1{
-    width: 60%;
+/*ändrar storleken på header texten till vit, gör texten i fetstil och förstorar teckenstorleken*/
+#header h1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 4rem;
 }
 
-#posts{
+/*sorterar alla poster som en column och centrerar innehållet i dem*/
+/*justerar post-div till 100% av rutans bredd och centrerar den, och lägger till en marginal från toppen och botten och mellanrum mellan poster*/
+#posts {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 4em;
+    gap: 4em;;
 }
 
-.post-image img{
-    width: 40em;
-}
-
-.image-post{
-    border: 1px solid black;
-    width: 40em;
+/*skapar en border, rundar hörnen och lägger till en skugga runt posterna*/
+/*justerar innehållet till en column och lägger till padding på alla sidor och mellanrum mellan innehållet för att matcha mallen*/
+.image-post {
+    border: 1px solid gray;
+    border-radius: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 3em;
+    padding-top: 1em;
+    width: 33em;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5em;
-    border-radius: 1%;
-    box-shadow: 0 3px 10px rgb(0 0 0 /0.5);
-    padding-left: 3em;
-    padding-right: 3em;
+    gap: 1em;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}   
+
+/*ändrar typsnittet på paragraferna i posterna till Times New Roman*/
+.post-description {
+    font-family: 'Times New Roman', Times, serif;   
 }
 
-.post-title{
-    align-self: flex-start;
-    position: relative;
+/*justerar bilden i posts till 100% av rutans bredd*/
+.post-image img {
+    width: 100%;
 }
