@@ -1,3 +1,4 @@
+/* Sätter en flex display för att lägga dess direkta innehåll i mitten*/
 body{
     background-color: antiquewhite;
     display: flex;
@@ -5,17 +6,19 @@ body{
     min-height: 100vh;
 }
 
+/* Wrappern får en satt width. - Display flex med en wrap som gör att dess direkta nivå åker ner på nästa nivå om det är för trångt i wrappern - Centrerar innehållet relativt till wrappern  */
 .wrapper{
     width: 45em;
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
     position: relative;
     background-color:aliceblue;
 }
-
+/*
+    Sätter kortens storlek och annat utseende. - Dess innehåll läggs ut med hjlå av en display flex som wrappar.- Gap ger ett mellanrum mellan dess innehåll - Margin sätter ett mellanrum mellan de olika korten
+*/
 .card{
     width: 12em;
     height: 18em;
@@ -28,85 +31,80 @@ body{
     gap: 1em;
     margin: 1em;
 }
-
+/* Paragraf(er) innanför bakgrunden får sin större storlek */
 .card .background p{
-    margin: 0;
     font-size: 56px;
     font-weight: 600;
 }
-
-
+/* Bakgrunden sätter sig själv i centrum genom att gå från 50%, 50% kortets vänstra övre hörn och går sedan transformerar bakgrunden så den hamnar centrerat */
 .card .background{
-    align-self: center;
     position:absolute;
-    width: 100%;
-    left: 0em;
-    top: 40%;
-    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
-
+/* Alla kort som ska ha mellanrum mellan a, b, c - rutorna och sin gräns*/
 .card.a, .card.b, .card.c{
     box-sizing:border-box;
     padding: 1em;
 }
-
+/*Sätter innehållet i card A till flex-end*/
+.card.a .box{
+    align-self: flex-end;
+}
+/* Sätter innehållet i card B där den ska vara */
 .card.b {
     flex-direction: column-reverse;
     justify-content: flex-start;
+    align-content: flex-end;
 }
-
-.card.b .box{
-    align-self: flex-end;
-}
-
+/* Förskjuter box b i card b lite åt höger*/
 .card.b .box.b{
     position: relative;
     left: 2em
 }
-
+/*Sätter alla lådor i card c förskjutet till vänster*/
 .card.c .box{
     position: relative;
     left: -2em;
 }
-
+/*Bakgrundsfärg till låda b i kort c*/
 .card.c .box.b{
     background-color: orangered
 }
-
+/* Kort d:s innehåll sätts i en kolumn med space-around*/
 .card.d{
     flex-direction: column;
     justify-content: space-around;
 }
+/*Roterar lådorna i kort d*/
 .card.d .box{
     transform: rotate(90deg);
 }
+/*Kort E använder display flex med en space-between, row så innehållet åker ner på nästa nivå om den inte får plats*/
 .card.e{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-content: space-between;
 }
-.card.e .background{
-    position: static;
-    order: 2;
-
-}
+/* Sätter border radiusen till kortets*/
 .card.e .box.a{
     border-top-left-radius: inherit;
-    order: 1;
 }
+/* Sätter border radiusen till kortets, och förskjuter till höger*/
 .card.e .box.b{
     border-top-right-radius: inherit;
-    order: 1;
     margin-left: auto;
 }
-
+/* Sätter border radiusen till kortets, och sätter den nere i högre hörnet*/
 .card.e .box.c{
     border-bottom-right-radius: inherit;
-    order: 3;
-    margin-left: auto;
+    position:absolute;
+    right: 0%;
+    bottom: 0%;
 }
-
+/*Alla box har detta att utgå från*/
 .box{
     display: flex;
     height: 2em;
@@ -115,30 +113,22 @@ body{
     align-items: center;   
     justify-content: center;
 }
-
-.card.a .box{
-    align-self: flex-end;
-}
-
+/*Alla a:n i korten blir lila*/
 .card .box.a{
     background-color: purple;
 }
-
+/*Lådorna nere i hörnen sitter fast nere på skärmen*/
 .fixed{
     position: fixed;
     width: 10em;
     height: 10em;
-    place-items: center;
-}
-
-.bottom{
     bottom: 0em;
 }
-
+/*sätter left till vänster*/
 .left{
     left: 0em;
 }
-
+/*sätter right till höger*/
 .right{
     right: 0em;
 }

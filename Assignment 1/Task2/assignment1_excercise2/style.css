@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-image: url("images/greyzz.png");
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -23,10 +23,11 @@ body{
 
 #header {
     width: 100%;
-    height: 20em;
+    height: 13em;
     background-image: url("images/header.jpeg");
     background-position: center;
     background-size: cover;
+    background-position: center 80%;
     color: white;
     font-size: 30px;
     display: flex;

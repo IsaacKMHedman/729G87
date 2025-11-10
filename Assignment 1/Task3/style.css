@@ -1,28 +1,30 @@
+/*Display flex så dess direkta innehåll kommer i mitten tack vare justify-content: center, Paddingen ger marginalen från toppen till wrappern. */
 body {
     margin: 0;
     background-color: gray;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 2em;
 }
+
+/*Sätter en form till wrappern, sätter dess innehåll i en display flex och sätter det som en kolumn, så header - columns - footer.*/
 
 .wrapper {
     width: 69em;
-    margin: auto;
     background-color: white;
     height: 62vh;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 2em;
 }
-
+/*Lägger ut alla header content (H1) ut jämnt fördelat i wrappern*/
 .header {
     background-color: black;
     display: flex;
     justify-content: space-around;
     color: white;
 }
-
+/*Footern får ett utseende. Samt ett centrerat innehåll*/
 .footer {
     background-color: black;
     color: white;
@@ -30,31 +32,29 @@ body {
     position: relative;
     display: flex;
     height: 7em; 
-    width: 100%;
     justify-content: center;
     align-items: center;
-    bottom: -2em;
 }
-
+/* Alla kolumner har display flex så den läggs där på rad.
+*/
 .columns{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    width: 100%;
-    background-color: blue;
-    height: 100%;
 }
+/* Sätter så att kolumnens direkta innehåll läggs i en kolumn
+Border box ger en innåtgående padding
+    */
 .column{
     width: 23em;
     background-color: aliceblue;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
     box-sizing: border-box;
     padding: 2em;
 }
 
+/*
+    Font sizen på kolumnens text
+*/
 .column p{
     font-size:larger;
 }
