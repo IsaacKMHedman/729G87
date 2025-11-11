@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: grey;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 17em;
+    height: 17em;
+}
+
+.image-div{
+    background-image: url(images/image1-small.jpg);
+    background-position: center 50%;
+    background-size: contain;
+    width: 20em;
+    height: 20em;
+    background-repeat: no-repeat;
+}
+
+.image{
+
+}
