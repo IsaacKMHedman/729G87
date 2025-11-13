@@ -3,7 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: grey;
+    background-color: gainsboro;
 }
 
 .wrapper{
@@ -13,17 +13,23 @@ body{
     background-color: white;
     width: 17em;
     height: 17em;
+    padding: 0.5em;
 }
 
 .image-div{
-    background-image: url(images/image1-small.jpg);
-    background-position: center 50%;
-    background-size: contain;
-    width: 20em;
-    height: 20em;
-    background-repeat: no-repeat;
+    background-image: url(images/image1.jpg);
+    background-size: cover;
+    background-position: center;
+    width: inherit;
+    height: inherit;
 }
 
-.image{
+.arrow {
+    font-size: 40px;
+    color: gray;
+    padding: 0.2em;
+}
 
+#leftButton {
+    order: -1;
 }
