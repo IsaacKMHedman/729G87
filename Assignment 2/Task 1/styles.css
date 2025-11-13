@@ -17,10 +17,6 @@ body{
 }
 
 .image-div{
-<<<<<<< HEAD
-=======
-    background-image: url(images/image1.jpg);
->>>>>>> cb686aaf8ff1040d1089d18900bade35c7996e62
     background-size: cover;
     background-position: center;
     width: inherit;
@@ -29,7 +25,6 @@ body{
     align-items: flex-end;
 }
 
-<<<<<<< HEAD
 #description{
     height: 3em;
     width: 100%;
@@ -58,33 +53,38 @@ body{
 .smallBoxes{
     width: 80%;
     height: 20%;
-    background-color: aliceblue;
     top: 2em;
     position:relative;
     display: flex;
-    gap: 1em;
+    gap: 2em;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-#smallImage{
-    width: 2em;
-    height: 2em;
-    background-color: black;
-}
 
 .content{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-=======
-.arrow {
-    font-size: 40px;
-    color: gray;
-    padding: 0.2em;
 }
 
-#leftButton {
-    order: -1;
->>>>>>> cb686aaf8ff1040d1089d18900bade35c7996e62
+.smallImageBackground{
+    background-color: white;
+    width: 3em;
+    height: 3em;
+    padding: 0.25em;
 }
+
+.active{
+    padding: 0.5em;
+}
+
+.smallImage{
+    width: inherit;
+    height: inherit;
+    background-size: cover;
+    background-position: center;
+}
+
+

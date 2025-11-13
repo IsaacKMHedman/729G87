@@ -29,13 +29,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let imageIndex = 0;
     let smallBoxesContainer = document.getElementById("smallBoxes");
 
+
     addSmallImages();
     changeImage(imageIndex);
 
-    addSmallImages();
-
     rightButton.addEventListener("click", (event)=>{
         imageIndex = (imageIndex + 1) % imageUrls.length;
+        changeLowerImage();
         changeImage(imageIndex);
     });
 
@@ -45,23 +45,38 @@ document.addEventListener("DOMContentLoaded", ()=>{
            }else{
             imageIndex -= 1;
            }
-       
+        changeLowerImage();
        changeImage(imageIndex);
     });
+
     function changeImage (imageIndex){
         console.log(imageIndex); 
         imageDiv.style.backgroundImage = imageFolder+imageUrls[imageIndex%imageUrls.length] +")";
         console.log(mapImageToDescription.get(imageUrls[imageIndex]));
         descriptionText.innerHTML = mapImageToDescription.get(imageUrls[imageIndex]);
+        
+        let active = document.getElementById(imageIndex);
+        active.classList.add("active");
+    }
+
+    function changeLowerImage(){
+        let ab = document.getElementsByClassName("smallImageBackground");
+        for (let a of ab) {
+            a.classList.remove("active");
+        }
     }
 
     function addSmallImages(){
         for(let i = 0; i < imageUrls.length; i++){
             console.log("insideSmallImages");
+            var background = document.createElement("div");
+            background.className = "smallImageBackground";
+            background.id = i;
             var div = document.createElement("div");
-            div.id = "smallImage";
-            smallBoxesContainer.appendChild(div);
+            div.className = "smallImage";
+            smallBoxesContainer.appendChild(background);
+            background.appendChild(div);
+            div.style.backgroundImage = imageFolder+imageUrls[i];
         }
-        
     }
 });
