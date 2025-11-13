@@ -3,7 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: grey;
+    background-color: gainsboro;
 }
 
 .wrapper{
@@ -17,12 +17,59 @@ body{
 }
 
 .image-div{
-    background-image: url(images/image1.jpg);
-    background-position: center;
     background-size: cover;
+    background-position: center;
     width: inherit;
     height: inherit;
+    display: flex;
+    align-items: flex-end;
 }
 
+#description{
+    height: 3em;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    box-sizing: border-box;
+    padding: 1em;       
+}
 
+.arrow {
+    font-size: 40px;
+    color: gray;
+    padding: 0.2em;
+}
+.arrow:hover{
+    cursor: pointer;
+}
 
+#leftButton {
+    order: -1;
+}
+
+.smallBoxes{
+    width: 80%;
+    height: 20%;
+    background-color: aliceblue;
+    top: 2em;
+    position:relative;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+#smallImage{
+    width: 2em;
+    height: 2em;
+    background-color: black;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -9,22 +9,59 @@ let imageUrls = [
     'image8.jpg'
 ];
 
-const leftButton = document.getElementById("leftButton");
-const rightButton = document.getElementById("rightButton");
-const imageFolder = "url(images/";
-const imageDiv = document.getElementById("image-div");
+const mapImageToDescription = new Map;
+mapImageToDescription.set(imageUrls[0], "Cat and book");
+mapImageToDescription.set(imageUrls[1], "Cat and book 2");
+mapImageToDescription.set(imageUrls[2], "Cat in tree");
+mapImageToDescription.set(imageUrls[3], "Cat on carpet");
+mapImageToDescription.set(imageUrls[4], "Cat on blanket");
+mapImageToDescription.set(imageUrls[5], "Cat and ball");
+mapImageToDescription.set(imageUrls[6], "Christmascat");
+mapImageToDescription.set(imageUrls[7], "Cat in tree 2");
 
-window.addEventListener("load", () =>{
-    baseimage.style.backgroundImage = "url(images/"+imageUrls[0] +")";
-})
+document.addEventListener("DOMContentLoaded", ()=>{
 
-let buttonClickRight = () =>{
+    let leftButton = document.getElementById("leftButton");
+    let rightButton = document.getElementById("rightButton");
+    const imageFolder = "url(images/";
+    let imageDiv = document.getElementById("image-div");
+    let descriptionText = document.getElementById("descriptionText");
+    let imageIndex = 0;
+    let smallBoxesContainer = document.getElementById("smallBoxes");
 
-}
+    addSmallImages();
+    changeImage(imageIndex);
 
-let buttonClickLeft= () =>{
+    addSmallImages();
 
-}
+    rightButton.addEventListener("click", (event)=>{
+        imageIndex = (imageIndex + 1) % imageUrls.length;
+        changeImage(imageIndex);
+    });
 
-rightButton.addEventListener(buttonClickRight);
-leftButton.addEventListener(buttonClickLeft);
+    leftButton.addEventListener("click", (event)=>{
+        if(imageIndex == 0){
+            imageIndex = imageUrls.length-1;
+           }else{
+            imageIndex -= 1;
+           }
+       
+       changeImage(imageIndex);
+    });
+    function changeImage (imageIndex){
+        console.log(imageIndex); 
+        imageDiv.style.backgroundImage = imageFolder+imageUrls[imageIndex%imageUrls.length] +")";
+        console.log(mapImageToDescription.get(imageUrls[imageIndex]));
+        descriptionText.innerHTML = mapImageToDescription.get(imageUrls[imageIndex]);
+    }
+
+    function addSmallImages(){
+        for(let i = 0; i < imageUrls.length; i++){
+            console.log("insideSmallImages");
+            var div = document.createElement("div");
+            div.id = "smallImage";
+            smallBoxesContainer.appendChild(div);
+        }
+        
+    }
+});
