@@ -13,17 +13,16 @@ body{
     background-color: white;
     width: 17em;
     height: 17em;
+    padding: 0.5em;
 }
 
 .image-div{
-    background-image: url(images/image1-small.jpg);
-    background-position: center 50%;
-    background-size: contain;
-    width: 20em;
-    height: 20em;
-    background-repeat: no-repeat;
+    background-image: url(images/image1.jpg);
+    background-position: center;
+    background-size: cover;
+    width: inherit;
+    height: inherit;
 }
 
-.image{
 
-}
+
