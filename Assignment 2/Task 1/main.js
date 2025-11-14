@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     leftButton.addEventListener("click", (event)=>{
         if(imageIndex == 0){
-            imageIndex = imageUrls.length-1;
-           }else{
+            imageIndex = imageUrls.length - 1;
+           } else {
             imageIndex -= 1;
            }
        changeImage(imageIndex);
