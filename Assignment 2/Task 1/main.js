@@ -29,13 +29,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let imageIndex = 0;
     let smallBoxesContainer = document.getElementById("smallBoxes");
 
-
     addSmallImages();
     changeImage(imageIndex);
 
     rightButton.addEventListener("click", (event)=>{
         imageIndex = (imageIndex + 1) % imageUrls.length;
-        changeLowerImage();
         changeImage(imageIndex);
     });
 
@@ -45,20 +43,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
            }else{
             imageIndex -= 1;
            }
-        changeLowerImage();
        changeImage(imageIndex);
     });
 
     function changeImage (imageIndex){
+        changeLowerImage();
         console.log(imageIndex); 
         imageDiv.style.backgroundImage = imageFolder+imageUrls[imageIndex%imageUrls.length] +")";
         console.log(mapImageToDescription.get(imageUrls[imageIndex]));
         descriptionText.innerHTML = mapImageToDescription.get(imageUrls[imageIndex]);
-        
         let active = document.getElementById(imageIndex);
         active.classList.add("active");
     }
-
+    
     function changeLowerImage(){
         let ab = document.getElementsByClassName("smallImageBackground");
         for (let a of ab) {
@@ -66,6 +63,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     }
 
+    //Background får paddingen - alltså sätts som active
     function addSmallImages(){
         for(let i = 0; i < imageUrls.length; i++){
             console.log("insideSmallImages");
