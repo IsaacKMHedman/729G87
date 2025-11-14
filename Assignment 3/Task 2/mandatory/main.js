@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             div.classList.add("actualBoxesVisible")
         };
     });
-
     
 });
 
