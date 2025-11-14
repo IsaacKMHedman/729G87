@@ -6,7 +6,8 @@ let imageUrls = [
     'image5.jpg',
     'image6.jpg',
     'image7.jpg',
-    'image8.jpg'
+    'image8.jpg',
+    //'image8-small.jpg'
 ];
 
 const mapImageToDescription = new Map;
@@ -48,9 +49,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function changeImage (imageIndex){
         changeLowerImage();
-        console.log(imageIndex); 
         imageDiv.style.backgroundImage = imageFolder+imageUrls[imageIndex%imageUrls.length] +")";
-        console.log(mapImageToDescription.get(imageUrls[imageIndex]));
         descriptionText.innerHTML = mapImageToDescription.get(imageUrls[imageIndex]);
         let active = document.getElementById(imageIndex);
         active.classList.add("active");
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     //Background får paddingen - alltså sätts som active
     function addSmallImages(){
         for(let i = 0; i < imageUrls.length; i++){
-            console.log("insideSmallImages");
             var background = document.createElement("div");
             background.className = "smallImageBackground";
             background.id = i;
