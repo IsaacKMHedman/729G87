@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4em;
+}
+#boxes{
+    border: 2px solid black;
+    padding: 2em;
+}
+/* Vill man ha så att de börjar från 
+mitten och går utåt kan man istället 
+bara flytta grejerna till actualboxes visible */
+.actualBoxes{
+    width: 5em;
+    height: 5em;
+    visibility: hidden;
+    background-color: yellow;
+}
+.actualBoxesVisible{
+    visibility: visible;
+}
+
+#boxesDiv{
+    display: flex;
+    gap: 1em;
+}

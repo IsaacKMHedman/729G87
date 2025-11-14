@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#bluecubebackground{
+    background-color: blue;
+    width: 10em;
+    height: 10em;
+}
+
+#bluecube{
+    background-color: blue;
+    width: inherit;
+    height: inherit;
+}
+
+.enter{
+    display: none;
+}
+
+.leave{
+    display: block;
+}
