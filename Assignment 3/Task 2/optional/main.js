@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     for(let i = 0; i < 17; i++){
         var option = document.createElement("option");
-        option.style.value=i;
+        option.style.value=1;
         option.innerHTML=i;
         option.className = "options";
         select.appendChild(option);
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     select.addEventListener("change", event => {
         console.log(event.target.value);
         //Försökte loopa genom boxesDiv children men det gick typ inte??
+
         boxesDiv.innerHTML ="";
         
         for(i = 0; i < event.target.value; i++){
