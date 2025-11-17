@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    padding: 10rem;
+    justify-content: space-around;
+}
+
+.left-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#textInput, #textOutput {
+    width: 35rem;
+    height: 15rem;
+    border: 2px black solid;
+    resize: none;
+}
+
+.styleSelection {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.right-wrapper {
+    font-size: large;
+}
+
+select, button {
+    width: 10rem;
+    font-size: large;
+}
+
+.plain {
+    color: inherit;
+    font-family: inherit;
+}
+
+.red {
+    font-family: inherit;
+    color: red;
+}
+
+.fancy {
+    color: inherit;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
