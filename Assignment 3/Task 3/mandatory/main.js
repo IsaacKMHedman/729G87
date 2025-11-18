@@ -14,7 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
         textOutput.className = styleMenu.value;
     });
 
-
-
-
 });
