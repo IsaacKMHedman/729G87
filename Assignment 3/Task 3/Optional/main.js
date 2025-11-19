@@ -35,5 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
         textOutputBox.appendChild(p);
         textInput.value = "";
     }
-
 });
