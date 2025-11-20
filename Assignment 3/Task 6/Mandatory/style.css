@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.column{
+    height: 10em;
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button{
+    width: 10em;
+    height: 5em;
+}
+
+.box{
+    width: 5em;
+    height: 5em;
+    background-color: blueviolet;
+}
+
+.active{
+    width: 15em;
+}
+button:hover{
+    cursor: pointer;
+}
