@@ -5,6 +5,10 @@ body{
     height: 100vh;
 }
 
+label {
+    font-size: 36px;
+}
+
 .wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +19,8 @@ body{
 }
 #boxes{
     border: 2px solid black;
-    padding: 2em;
+    width: 10rem;
+    font-size: 20px;
 }
 .actualBoxes{
     width: 5em;

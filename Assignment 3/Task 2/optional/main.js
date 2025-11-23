@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         select.appendChild(option);
     }
     select.addEventListener("change", event => {
-        console.log(event.target.value);
-        //Försökte loopa genom boxesDiv children men det gick typ inte??
 
         boxesDiv.innerHTML ="";
         
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             var div = document.createElement("div");
             div.className = "actualBoxes";
             boxesDiv.appendChild(div);   
-        };
+        };  
     });
 
     

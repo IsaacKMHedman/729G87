@@ -30,6 +30,16 @@ body {
     font-size: large;
 }
 
+#outputBox {
+    width: 35rem;
+    overflow-wrap: break-word;
+}
+
+.right-wrapper h2 {
+    transform: translate(0, -100%);
+}
+
+
 select, button {
     width: 10rem;
     font-size: large;
