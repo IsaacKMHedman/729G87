@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 height: 500,
             });
         });
-
+        
         rectangles[i].addEventListener("mouseleave", (event) => {
             utils.remove(event.target);
             animate(event.target, {
