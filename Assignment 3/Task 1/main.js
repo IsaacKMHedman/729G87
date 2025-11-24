@@ -2,18 +2,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let bluecube = document.getElementById('bluecubebackground');
 
 
-    bluecube.onmouseenter = () =>{
+    bluecube.onmouseenter = (event) =>{
         //bluecube.style.display="none";
-        bluecube.classList.remove("leave");
+        event.target.classList.remove("leave");
         bluecube.classList.add("enter");
     };
-    bluecube.onmouseleave = () => {
+    bluecube.onmouseleave = (event) => {
        // bluecube.style.display="block";  
        bluecube.classList.remove("enter")
        bluecube.classList.add("leave");
     };
     
-
 });
-
-

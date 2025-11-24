@@ -24,11 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
         rectangle.addEventListener("click", rectangleFunction); 
     }
     
-    function circleFunction(){
+    function circleFunction(event){
         console.log('Circle Function');
         for(let j = 0; j < circles.length; j++){
             //Toggle fungerar lika bra, eller? 
             // Bör väl fungera lika bra som remove och add på classList...?
+            //Fixa bara den man klicka på - gäller för de övriga också 
             circles[j].classList.toggle('green');
             console.log(circles[j].classList);
         }

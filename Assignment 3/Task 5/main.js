@@ -1,4 +1,4 @@
-import {animate } from 'https://esm.sh/animejs';
+import {animate, utils } from 'https://esm.sh/animejs';
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -12,15 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     //Alla rektanglar får eventlisteners för mouse enter och mouse leave
     for(let i = 0; i < rectangles.length; i++){
         rectangles[i].addEventListener("mouseenter", (event) => {
+            utils.remove(event.target);
             animate(event.target, { 
                 height: 500,
-            })
+            });
         });
 
         rectangles[i].addEventListener("mouseleave", (event) => {
+            utils.remove(event.target);
             animate(event.target, {
                 height: rectangleHeight,
-            })
+            });
         });
     }
 });
