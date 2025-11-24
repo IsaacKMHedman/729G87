@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const textInput = document.getElementById("textInput");
-    const textOutput = document.getElementById("textOutput");
     const styleMenu = document.getElementById("styleMenu");
     const applyStyle = document.getElementById("applyStyle");
 
@@ -33,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function addNewParagraph(){
         var p = document.createElement("p");
         textOutputBox.appendChild(p);
+        textOutputBox.lastChild.className = styleMenu.value;
         textInput.value = "";
     }
 });
