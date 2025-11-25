@@ -10,7 +10,7 @@ body{
 .wrapper{
     width: 45em;
     border: 1px solid black;
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
