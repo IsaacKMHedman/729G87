@@ -22,7 +22,7 @@ body {
 /*placerar texten på headern via flex-box till vänster och botten, med en manuell padding från vänster*/
 #header {
     width: inherit;
-    height: 23em;
+    height: 12em;
     background-image: url("images/header.jpeg");
     background-position: center 80%;
     background-size: cover;
@@ -37,6 +37,7 @@ body {
     color: white;
     font-weight: bolder;
     font-size: 4rem;
+    width: 80%;
 }
 
 /*sorterar alla poster som en column och centrerar innehållet i dem*/
@@ -44,10 +45,8 @@ body {
 #posts {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 4em;
-    gap: 4em;;
+    align-content: center;
+    justify-content: center;
 }
 
 /*skapar en border, rundar hörnen och lägger till en skugga runt posterna*/
@@ -55,23 +54,13 @@ body {
 .image-post {
     border: 1px solid gray;
     border-radius: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-bottom: 3em;
-    padding-top: 1em;
-    width: 33em;
+    width: 40em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
 }   
 
 /*ändrar typsnittet på paragraferna i posterna till Times New Roman*/
 .post-description {
     font-family: 'Times New Roman', Times, serif;   
-}
-
-/*justerar bilden i posts till 100% av rutans bredd*/
-.post-image img {
-    width: 100%;
 }
