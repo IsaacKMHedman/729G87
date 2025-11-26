@@ -58,9 +58,21 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 5s;
 }   
 
 /*ändrar typsnittet på paragraferna i posterna till Times New Roman*/
 .post-description {
     font-family: 'Times New Roman', Times, serif;   
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to{
+        opacity: 2;
+        transform: translateX(0px);
+    }
 }
