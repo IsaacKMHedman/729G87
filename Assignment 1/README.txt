@@ -1,3 +1,4 @@
-No optional tasks. 
+Optional Task 2 completed. 
 
-3 Points.
+Aiming for 
+2 Points.

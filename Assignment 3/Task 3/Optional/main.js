@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const textInput = document.getElementById("textInput");
     const styleMenu = document.getElementById("styleMenu");
     const applyStyle = document.getElementById("applyStyle");
-
     const newParagraphBtn = document.getElementById("newParagraph");
     const textOutputBox = document.getElementById("outputBox");
 
@@ -32,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function addNewParagraph(){
         var p = document.createElement("p");
         textOutputBox.appendChild(p);
+        textOutputBox.lastChild.className = styleMenu.value;
         textInput.value = "";
     }
 });

@@ -10,11 +10,16 @@ body{
 .wrapper{
     width: 45em;
     border: 1px solid black;
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
     background-color:aliceblue;
+}
+.wrapper > .box{
+    width: 10em;
+    height: 10em;
+    bottom: 0em;
 }
 /*
     Sätter kortens storlek och annat utseende. - Dess innehåll läggs ut med hjlå av en display flex som wrappar.- Gap ger ett mellanrum mellan dess innehåll - Margin sätter ett mellanrum mellan de olika korten
@@ -120,9 +125,6 @@ body{
 /*Lådorna nere i hörnen sitter fast nere på skärmen*/
 .fixed{
     position: fixed;
-    width: 10em;
-    height: 10em;
-    bottom: 0em;
 }
 /*sätter left till vänster*/
 .left{
