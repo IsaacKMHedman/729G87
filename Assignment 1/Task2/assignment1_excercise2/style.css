@@ -2,6 +2,7 @@
 /*sätter även bakgrunden till den gråa bilden och sätter typsnittet till Arial som default*/
 body {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("images/greyzz.png");
@@ -13,6 +14,7 @@ body {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 60em;
     align-items: center;
 }
@@ -22,14 +24,15 @@ body {
 /*placerar texten på headern via flex-box till vänster och botten, med en manuell padding från vänster*/
 #header {
     width: inherit;
-    height: 12em;
+    height: 20em;
     background-image: url("images/header.jpeg");
-    background-position: center 80%;
+    background-position: center 70%;
     background-size: cover;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
     padding-left: 2.5em;
+    padding-bottom: 2.5em;
 }
 
 /*ändrar storleken på header texten till vit, gör texten i fetstil och förstorar teckenstorleken*/
@@ -48,6 +51,9 @@ body {
     align-content: center;
     justify-content: center;
 }
+.post-image img{
+    width: 40em;
+}
 
 /*skapar en border, rundar hörnen och lägger till en skugga runt posterna*/
 /*justerar innehållet till en column och lägger till padding på alla sidor och mellanrum mellan innehållet för att matcha mallen*/
@@ -57,15 +63,30 @@ body {
     width: 40em;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+    box-shadow: 0 3px 10px rgba(0 0 0 / 0.5);
     animation: fadeIn 5s;
+    margin: 5em;
+    padding-left: 3em;
+    padding-right: 3em;
 }   
-
+.image-post h1{
+    font-size: 30px;
+    font-weight: bold;
+}
 /*ändrar typsnittet på paragraferna i posterna till Times New Roman*/
 .post-description {
-    font-family: 'Times New Roman', Times, serif;   
+    font-family: '', Times, serif;   
 }
-
+.post-title, .post-description{
+    align-self: flex-start;
+    position: relative;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.post-description{
+    padding-bottom: 3em;
+}
 @keyframes fadeIn{
     from{
         opacity: 0;
