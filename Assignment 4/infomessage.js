@@ -16,9 +16,9 @@ class InfoMessage extends HTMLElement {
     }
 
     .infobox {
-        border: 2px solid #ccc;
+        border: 2px solid lightgrey;
         border-radius: 4px;
-        background: #fff;
+        background: white;
     }
 
     .heading {
