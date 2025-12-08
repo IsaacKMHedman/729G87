@@ -10,7 +10,7 @@ class InfoMessage extends HTMLElement {
         template.innerHTML = /*html*/ `
 <style>
     :host {
-        display: block;
+        display: flex;
         margin: 2rem 0;
         font-family: sans-serif;
     }
@@ -26,8 +26,8 @@ class InfoMessage extends HTMLElement {
         align-items: center;
         background: orange;
         color: white;
-        padding: 1ch 1.5ch;
-        gap: 1ch;
+        padding: 0.6rem 1rem;
+        gap: 0.6rem;
         font-weight: bold;
         font-size: 1.1rem;
     }
@@ -39,22 +39,8 @@ class InfoMessage extends HTMLElement {
     }
 
     .message {
-        padding: 1.5ch 2ch;
+        padding: 1rem 1.3rem;
         font-size: 1rem;
-    }
-
-    ::slotted(p),
-    ::slotted(ul),
-    ::slotted(li) {
-        font-family: sans-serif;
-    }
-
-    ::slotted(ul) {
-        padding-left: 2ch;
-    }
-
-    ::slotted(li) {
-        margin-bottom: 0.3em;
     }
 </style>
 
