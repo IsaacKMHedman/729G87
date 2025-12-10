@@ -15,37 +15,45 @@ class ToggleButton extends HTMLElement {
         margin: 0.3em 0;
     }
 
-    .label {
+    .wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    p {
+        margin: 0;
         margin-right: 0.5em;
     }
 
-    .box {
+    .toggle {
         width: 20px;
         height: 20px;
-        border: 2px black solid;
+        border: 2px solid black;
         background: white;
         cursor: pointer;
     }
 
-    .box.on {
+    .toggle[aria-pressed="true"] {
         background: lightgreen;
     }
 </style>
 
-<span class="label"></span>
-<div class="box"></div>
-
+<div class="wrapper">
+    <p></p>
+    <div class="toggle" role="button" aria-pressed="false"></div>
+</div>
 `;
 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this._label = this.shadowRoot.querySelector(".label");
-        this._box = this.shadowRoot.querySelector(".box");
+        this._label = this.shadowRoot.querySelector("p");
+        this._toggle = this.shadowRoot.querySelector(".toggle");
 
         this._value = 0;
 
         this._label.textContent = this.getAttribute("label") || "";
-        this._box.addEventListener("click", () => {
+
+        this._toggle.addEventListener("click", () => {
             this.value = this._value === 0 ? 1 : 0;
         });
     }
@@ -60,17 +68,12 @@ class ToggleButton extends HTMLElement {
 
         this._value = num;
 
-        if (num === 1) {
-            this._box.classList.add("on");
-        } else {
-            this._box.classList.remove("on");
-        }
-
-        this._box.setAttribute("aria-pressed", num === 1 ? "true" : "false");
+        this._toggle.setAttribute("aria-pressed", num === 1 ? "true" : "false");
 
         this.dispatchEvent(new Event("input", {
             bubbles: true
         }));
     }
 }
+
 customElements.define("toggle-button", ToggleButton);
