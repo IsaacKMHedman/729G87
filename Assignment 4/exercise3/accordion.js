@@ -4,82 +4,77 @@ class Accordion extends HTMLElement {
         this.attachShadow({
             mode: "open"
         });
+
+        const template = document.createElement("template");
+
+        template.innerHTML = /*html*/ `
+<style>
+    .accordion {
+        width: 100%;
     }
 
-    connectedCallback() {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
 
-        this.shadowRoot.innerHTML = /*html*/ `
-        <style>
-            .accordion {
-                width: 100%;
-            }
-        
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-        
-            li {
-                margin-bottom: 0.5rem;
-            }
-        
-            button {
-                width: 100%;
-                text-align: left;
-                padding: 1rem 1.5rem;
-                background-color: #6b8399;
-                border: none;
-                cursor: pointer;
-                font-size: 1rem;
-                font-weight: bold;
-                color: white;
-                transition: background-color 0.2s;
-                position: relative;
-            }
-        
-            button::before {
-                content: "▶";
-                position: absolute;
-                left: 0.5rem;
-                transition: transform 0.2s;
-            }
-        
-            button[aria-expanded="true"]::before {
-                transform: rotate(90deg);
-            }
-        
-            button:hover {
-                background-color: #5a7188;
-            }
-        
-            button:focus {
-                outline: 2px solid #333;
-                outline-offset: 2px;
-            }
-        
-            div[role="region"] {
-                padding: 1rem;
-                border: 1px solid #ccc;
-                background-color: #fff;
-                margin-bottom: 0.5rem;
-            }
-        
-            div[role="region"] p {
-                font-size: 0.95rem;
-                line-height: 1.6;
-                margin-bottom: 0.75rem;
-                color: #333;
-            }
-        
-            div[role="region"] p:last-child {
-                margin-bottom: 0;
-            }
-        </style>
-        <div class="accordion">
-            <ul></ul>
-        </div>
-        `;
+    li {
+        margin-bottom: 0.2rem;
+    }
+
+    button {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        background-color: slategrey;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        position: relative;
+    }
+
+    button::before {
+        display: flex;
+        content: "▶";
+        align-self: center;
+        position: absolute;
+        left: 0.5rem;
+        transition: transform 0.2s;
+    }
+
+    button[aria-expanded="true"]::before {
+        transform: rotate(90deg);
+    }
+
+    button:hover {
+        filter: brightness(0.9);
+    }
+
+    div[role="region"] {
+        padding: 1rem;
+        border: 1px solid lightgrey;
+        background-color: white;
+        margin-bottom: 0.5rem;
+    }
+
+    div[role="region"] p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+    }
+
+    div[role="region"] p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+<div class="accordion">
+    <ul></ul>
+</div>
+`;
+
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         const ul = this.shadowRoot.querySelector("ul");
 
