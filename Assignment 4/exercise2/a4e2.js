@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     updateWidgetDisplay();
   });
 });
-
+//uppdaterar knapparnas värde
 function updateWidgetDisplay() {
   let toggleValues = [];
   document.querySelectorAll("toggle-button").forEach((widget) => {

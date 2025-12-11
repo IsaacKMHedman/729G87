@@ -6,7 +6,7 @@ class ToggleButton extends HTMLElement {
         });
 
         const template = document.createElement("template");
-
+//SKapar mallen
         template.innerHTML = /*html*/ `
 <style>
     :host {
@@ -43,16 +43,16 @@ class ToggleButton extends HTMLElement {
     <div class="toggle" role="button" aria-pressed="false"></div>
 </div>
 `;
-
+//KLonar innehåll från mallen och skickar in i shadowrealmen, gör att html/css endast gäller för detta
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
+//hämta referenser
         this._label = this.shadowRoot.querySelector("p");
         this._toggle = this.shadowRoot.querySelector(".toggle");
-
+//värde 0 -- avtängd
         this._value = 0;
-
+//textem
         this._label.textContent = this.getAttribute("label") || "";
-
+//händelse ändrar värde
         this._toggle.addEventListener("click", () => {
             this.value = this._value === 0 ? 1 : 0;
         });
