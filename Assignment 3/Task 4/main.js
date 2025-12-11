@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     function circleFunction(event){
-<<<<<<< HEAD
         console.log('Circle Function');
         for(let j = 0; j < circles.length; j++){
             //Toggle fungerar lika bra, eller? 
@@ -34,10 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
             circles[j].classList.toggle('green');
             console.log(circles[j].classList);
         }
-=======
-        event.target.classList.toggle('green');
-
->>>>>>> 9df5b998709aee7a3dbd0dc8dc32fc92235d69ba
     }
 
     function squareFunction(event){

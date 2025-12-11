@@ -1,0 +1,57 @@
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}
+
+#middle-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#price-div{
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
+}
+
+#fabric-div{
+    flex-direction: column;
+}
+
+#size-div{
+    display: flex;
+    flex-direction: column;
+}
+#color-div{
+    display: flex;
+    flex-direction: row;
+}
+#part-of-shirt{
+    width: 100%;
+    height: 4em;
+    border: 1px solid black;
+}
+.fabric-chooser, .size-chooser{
+    height: 4em;
+    width: 5em;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color-chooser{
+    border: 1px solid black;
+    height: 5em;
+    width: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
