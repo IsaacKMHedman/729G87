@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var colorbox = document.createElement("div");
         colorbox.className = "color-chooser";
         colordiv.appendChild(colorbox);
+        colorbox.addEventListener("click", (event) => colorOnClick(event));
         colorbox.style.backgroundColor = colors[color];
     };
 
@@ -31,5 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
         fabricsbox.className = "fabric-chooser";
         fabricsbox.innerHTML = "<p>" + fabrics[fabric] + "</p>";
         fabricsdiv.appendChild(fabricsbox);
-    }
+    };
+
+    function colorOnClick(event){
+        let style = window.getComputedStyle(event.target);
+        //Bara för att visa att det fungerar
+        let backgroundcolor = style.backgroundColor;
+        fabricsdiv.style.backgroundColor = backgroundcolor;
+        console.log(style.backgroundColor);
+    };
+
+    function sizeOnClick(){
+
+    };
+    
+    function fabricOnClick(){
+
+    };
 });

@@ -55,3 +55,21 @@
     align-items: center;
     justify-content: center;
 }
+
+#part-of-shirt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.part-of-shirt-menu {
+    width: 6em;
+    height: 6em;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+#selected-part-of-shirt-text-div{
+    width: 15em;
+}
