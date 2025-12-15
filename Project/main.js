@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Hårdkodar in skiten istället. Det lär väl va lugnt
     //Det man kan göra är separata maps eftersom det finns en liten risk att det i teorin kan bli dubletter
     //Det här är så fucking dåligt löst
+    //Holy shit
     mapCustomizationPrice.set("160", 600);
     mapCustomizationPrice.set("224", 400);
     mapCustomizationPrice.set("192", 200);
