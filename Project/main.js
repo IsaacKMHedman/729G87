@@ -1,4 +1,33 @@
+//Blev ett jävla stök att hålla koll på varje dels aktuella värden. Så gjorde en klass av det.
+class PartOfShirt{
+    constructor(color, sizes, fabric, object){
+        this.colorP = color;
+        this.sizesP = sizes
+        this.fabricP = fabric;
+        this.object = object;
+
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+    //Alla delar av tröjan
+    let partsOfShirt = document.getElementsByClassName('part-of-actual-shirt');
+
+    let p1 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard", partsOfShirt[0]);
+    let p2 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard", partsOfShirt[1]);
+    let p3 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard", partsOfShirt[2]);
+    let p4 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard",  partsOfShirt[3]);
+    let allPartsOfShirtClasses = [];
+    
+    allPartsOfShirtClasses.push(p1);
+    allPartsOfShirtClasses.push(p2);
+    allPartsOfShirtClasses.push(p3);
+    allPartsOfShirtClasses.push(p4);
+    
+    //Sätter standardvärden - Så att det visas på skärmen vilken man börjar på
+    let activePartOfShirt = allPartsOfShirtClasses[0];
+    let activePartOfShirtId = activePartOfShirt.object.getAttribute('id');
+    let currentPartOfShirtIndex = 0;
 
     //Sätter man in nya färger, storlekar, tyger så läggs de till tack vare funktioner längre ner i programmet
     const colors = ["rgb(128, 128, 128)", "rgb(255, 0, 0)", "rgb(0, 0, 255)", "rgb(0, 128, 0)", "rgb(0, 0, 0)"];
@@ -10,72 +39,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const fabrics = ["Standard", "Ull", "Bomull"];
     let fabricsdiv = document.getElementById("fabric-div");
 
-    let leftArmFabric, rightArmFabric, leftBodyFabric, rightBodyFabric = fabrics[0];
-    let leftArmSize, rightArmSize, leftBodySize, rightBodySize = sizes[0];
-
-    //Mappar pris för varje produkt
+    //Mappar pris för varje produkt - Kan vara vettigt med olika maps för varje olika del
+    //Eftersom i teorin kanske det finns ett fabric som delar namn med den färg tex... Osannolikt i vårt fall
     let mapCustomizationPrice = new Map();
-    //Eftersom den konverterar till rgb längre ner är det vettigt att göra såhär. Eller inte.
     mapCustomizationPrice.set(colors[0], 600);
     mapCustomizationPrice.set(colors[1], 400);
     mapCustomizationPrice.set(colors[2], 200);
     mapCustomizationPrice.set(colors[3], 500);
     mapCustomizationPrice.set(colors[4], 1000);
 
-    //Jag är inte nöjd med detta. Men satt alldeles för längeo ch började mappa mappar till mappar som mappade mappar.
-    //Hårdkodar in skiten istället. Det lär väl va lugnt
-    //Det man kan göra är separata maps eftersom det finns en liten risk att det i teorin kan bli dubletter
-    //Det här är så fucking dåligt löst
-    //Holy shit
-    mapCustomizationPrice.set("160", 600);
-    mapCustomizationPrice.set("224", 400);
-    mapCustomizationPrice.set("192", 200);
+    mapCustomizationPrice.set(sizes[0], 600);
+    mapCustomizationPrice.set(sizes[1], 400);
+    mapCustomizationPrice.set(sizes[2], 200);
 
-    mapCustomizationPrice.set("1", 600);
-    mapCustomizationPrice.set("0.7", 400);
-    mapCustomizationPrice.set("0.55", 200);
+    mapCustomizationPrice.set(fabrics[0], 600);
+    mapCustomizationPrice.set(fabrics[1], 400);
+    mapCustomizationPrice.set(fabrics[2], 200);
 
-    mapCustomizationPrice.set
-    let basePrice = 500;
+    //Baspris
+    let basePrice = 0;
     let totalPrice = basePrice;
 
+    //Knapparna när man går till olika delar av tröjan
     let movePartRightButton = document.getElementById('right');
     let movePartLeftButton = document.getElementById('left');
     
-    //Alla delar av tröjan
-    let partsOfShirt = document.getElementsByClassName('part-of-actual-shirt');
-
-    //Sätter standardvärden
-    let activePartOfShirt = partsOfShirt[0];
-    let activePartOfShirtId = partsOfShirt[0].getAttribute('id');
-    let currentPartOfShirtIndex = 0;
-
     //Detta är själva diven som visar vilken del av tröjan som är vald
     let activePartOfShirtText = document.getElementById('selected-part-of-shirt-text-div');
-
-    //@REMOVE detta är bara för test
-    for (let i = 0; i < partsOfShirt.length; i++){
-        partsOfShirt[i];  
-        console.log(partsOfShirt[i]); 
-    };
+    //Textdiven för priset
+    let totalPriceText = document.getElementById('price-div');
         
     //Sätter eventlisteners till höger- och vänsterknappen
     movePartRightButton.addEventListener('click', movePartRightOnClick);
     movePartLeftButton.addEventListener('click', movePartLeft);
 
-    //Sätter värden till knapparna
+    //Detta skapar mapsen som ger alla delar av tröjan sina värden. Till exempel ger vi med fabric opacity värden
     let mapFabricsToValue = new Map();
-    // let fabricsRotation = 0;
     let fabricsOpacity = 1;
 
     let mapSizeToValue = new Map();
-    //Y(Width)
+    //Y(Height)
     let sizeBoxes = 10; 
 
-    //Priset - Baspris 500 först
-    let totalPriceText = document.getElementById('price-div');
-
-    //Visar vilken del av tröjan
+    //Kör detta för att visa aktuellt pris samt del av tröjan personen är på
     showCurrentPartOfShirt();
     calculatePrice();
 
@@ -110,51 +116,48 @@ document.addEventListener("DOMContentLoaded", () => {
         //Opacity simulerar annat material
         fabricsOpacity = (fabricsOpacity/2) +0.2;
     };
-    
+
+
+    //Räknar ut totala priset
+    function calculatePrice(){
+        totalPrice = basePrice;
+        for(let i = 0 ; i < allPartsOfShirtClasses.length; i++){
+            totalPrice += mapCustomizationPrice.get(allPartsOfShirtClasses[i].colorP);
+            totalPrice += mapCustomizationPrice.get(allPartsOfShirtClasses[i].sizesP);
+            totalPrice += mapCustomizationPrice.get(allPartsOfShirtClasses[i].fabricP);
+        };
+        showCurrentPrice();
+    };
+
     //När användaren klickar på knappen så ändras den till färgen som rutan har. 
     function colorOnClick(event){
         let style = window.getComputedStyle(event.target);
-        //Bara för att visa att det fungerar
         let backgroundcolor = style.backgroundColor;
-        activePartOfShirt.style.backgroundColor = backgroundcolor;
+        activePartOfShirt.colorP = backgroundcolor;
+        activePartOfShirt.object.style.backgroundColor = backgroundcolor;
         calculatePrice();
     };
-
-    function calculatePrice(){
-        totalPrice = basePrice;
-        for(let i = 0 ; i < partsOfShirt.length; i++){
-            let pstyle = window.getComputedStyle(partsOfShirt[i]);
-            totalPrice += mapCustomizationPrice.get(pstyle.backgroundColor);
-            totalPrice += mapCustomizationPrice.get(pstyle.height.replace("px", ""));
-            totalPrice += mapCustomizationPrice.get(pstyle.opacity);
-            console.log(pstyle.opacity);
-        };
-        showCurrentPrice();
-        console.log(totalPrice);
-    };
-
     //Den här ändrar bara den delen som är aktiv, man kanske ska ändra hela tröjan istället..
     //Lite komiskt som det är nu dock.
     function sizeOnClick(event){
-        activePartOfShirt.style.height = mapSizeToValue.get(event.target) + "em";
+        activePartOfShirt.sizesP = event.target.innerHTML;
+        activePartOfShirt.object.style.height = mapSizeToValue.get(event.target) + "em";
         calculatePrice();
     };
-    
+    //Klickar på fabrics    
     function fabricOnClick(event){
-        console.log(mapFabricsToValue.get(event.target))
-        console.log('fabriconclickfunc');
-        activePartOfShirt.style.opacity = mapFabricsToValue.get(event.target);
+        activePartOfShirt.fabricP = event.target.innerHTML;
+        activePartOfShirt.object.style.opacity = mapFabricsToValue.get(event.target);
         calculatePrice();
     };
 
-    //Jag är helt övertygad om att detta går (och bör göras)att göra till en enda funktion.
     //Iaf, dessa 2 är när man klickar på vänster alternativt högerknappen
     function movePartRightOnClick(){
         currentPartOfShirtIndex = (currentPartOfShirtIndex + 1) % partsOfShirt.length;
         movePartOfShirt(currentPartOfShirtIndex);    
     };
 
-    function movePartLeft(event){
+    function movePartLeft(){
         if(currentPartOfShirtIndex == 0){
             currentPartOfShirtIndex = partsOfShirt.length - 1;
            } else {
@@ -163,18 +166,16 @@ document.addEventListener("DOMContentLoaded", () => {
        movePartOfShirt(currentPartOfShirtIndex);
     };
     
-    //Körs när man klickar på knapparna
+    //Körs när man klickar på knapparna för att ändra så man endast ändrar den aktuella delen av tröjan
     function movePartOfShirt(index){
-        activePartOfShirt = partsOfShirt[index];
-        activePartOfShirtId = activePartOfShirt.getAttribute('id');
+        activePartOfShirt = allPartsOfShirtClasses[index];
+        activePartOfShirtId = allPartsOfShirtClasses[index].object.getAttribute('id');
         showCurrentPartOfShirt();
-        console.log(activePartOfShirtId); 
     };
 
     //För att kunna köra det på en gång när man kör igång hemsidan
-    //Uppdaterar bara texten som visar vilken som är den aktiva delen av tröjan man ändrar
+    //Uppdaterar bara texten som visar vilken som är den aktiva delen av tröjan man ändrar - Under är den som uppdaterar priset på skärmen
     function showCurrentPartOfShirt(){
-
         activePartOfShirtText.innerHTML = '<p>' + activePartOfShirtId + '</p>';
     }
     function showCurrentPrice(){
