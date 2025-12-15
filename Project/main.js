@@ -87,10 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(style.backgroundColor);
     };
 
+    //Den här ändrar bara den delen som är aktiv, man kanske ska ändra hela tröjan istället..
+    //Lite komiskt som det är nu dock.
     function sizeOnClick(event){
         console.log('sizeonclickfunc');
         console.log(mapSizeToValue.get(event.target));
-        // activePartOfShirt. = mapSizeToValue.get(event.target); 
+        activePartOfShirt.style.height = mapSizeToValue.get(event.target) + "em";
     };
     
     function fabricOnClick(event){
