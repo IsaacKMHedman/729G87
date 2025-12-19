@@ -5,13 +5,12 @@ class PartOfShirt{
         this.sizesP = sizes
         this.fabricP = fabric;
         this.object = object;
-
     }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
     //Alla delar av tröjan
-    let partsOfShirt = document.getElementsByClassName('part-of-actual-shirt');
+    let partsOfShirt = document.getElementsByClassName('part');
 
     let p1 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard", partsOfShirt[0]);
     let p2 = new PartOfShirt("rgb(128, 128, 128)", "Regular", "Standard", partsOfShirt[1]);
@@ -28,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let activePartOfShirt = allPartsOfShirtClasses[0];
     let activePartOfShirtId = activePartOfShirt.object.getAttribute('id');
     let currentPartOfShirtIndex = 0;
+    let svgShirtDiv = document.getElementById("actual-shirt-svg");
 
     //Sätter man in nya färger, storlekar, tyger så läggs de till tack vare funktioner längre ner i programmet
     const colors = ["rgb(128, 128, 128)", "rgb(255, 0, 0)", "rgb(0, 0, 255)", "rgb(0, 128, 0)", "rgb(0, 0, 0)"];
@@ -73,13 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
     movePartRightButton.addEventListener('click', movePartRightOnClick);
     movePartLeftButton.addEventListener('click', movePartLeft);
 
+    //Vet inte om det är okej att simulera material med opacity - Men så gör vi
     //Detta skapar mapsen som ger alla delar av tröjan sina värden. Till exempel ger vi med fabric opacity värden
     let mapFabricsToValue = new Map();
     let fabricsOpacity = 1;
 
     let mapSizeToValue = new Map();
     //Y(Height)
-    let sizeBoxes = 10; 
+    let sizeBoxes = 20; 
 
     //Kör detta för att visa aktuellt pris samt del av tröjan personen är på
     showCurrentPartOfShirt();
@@ -134,14 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let style = window.getComputedStyle(event.target);
         let backgroundcolor = style.backgroundColor;
         activePartOfShirt.colorP = backgroundcolor;
-        activePartOfShirt.object.style.backgroundColor = backgroundcolor;
+        activePartOfShirt.object.style.fill = backgroundcolor;
         calculatePrice();
     };
     //Den här ändrar bara den delen som är aktiv, man kanske ska ändra hela tröjan istället..
     //Lite komiskt som det är nu dock.
     function sizeOnClick(event){
         activePartOfShirt.sizesP = event.target.innerHTML;
-        activePartOfShirt.object.style.height = mapSizeToValue.get(event.target) + "em";
+        svgShirtDiv.style.height = mapSizeToValue.get(event.target) + "em";
         calculatePrice();
     };
     //Klickar på fabrics    

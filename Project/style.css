@@ -60,6 +60,21 @@
     align-items: center;
     justify-content: center;
 }
+#picture-of-shirt{
+    /* background-image: url(images/t-shirt_for_project.jpg); */
+    height: 20em;
+    width: 20em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.actual-shirt-svg{
+    display: flex;
+    flex-wrap: wrap;
+}
+.part{
+    fill: grey;
+}
 
 #part-of-shirt{
     display: flex;
@@ -82,6 +97,11 @@
     display: flex;
     flex-direction: row;
     border: 1px solid black;
+}
+.actual-shirt-svg{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 .part-of-actual-shirt{
     width: 25%;
