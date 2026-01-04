@@ -11,55 +11,69 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    background-color: rgb(244, 248, 251);
 }
 
 #price-div{
-    border: 1px solid black;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5em;
+    font-family: verdana;
 }
 
-#fabric-div{
-    flex-direction: column;
-}
-
-#size-div{
+#fabric-div, #size-div{
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
+
+
 #color-div{
     display: flex;
     flex-direction: row;
+    gap: 1em;
 }
 #part-of-shirt{
     width: 100%;
     height: 4em;
-    border: 1px solid black;
-    background-color:burlywood;
+    background-color:rgb(33, 48, 63);
 }
 .fabric-chooser, .size-chooser{
+    font-family: Verdana;
     height: 4em;
-    width: 5em;
-    border: 1px solid black;
+    width: 7em;
+    border: 2px solid grey;
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.fabric-chooser:hover, .size-chooser:hover, .color-chooser:hover, #right:hover, #left:hover{
+
+.fabric-chooser.selected, .size-chooser.selected {
+    background-color: rgb(33, 48, 63);
+    color: white;
+}
+
+
+.fabric-chooser:hover, .size-chooser:hover, .color-chooser:hover, #right:hover, #left:hover, .part:hover{
     cursor: pointer;
     opacity: 0.5;
 }
 .color-chooser{
-    border: 1px solid black;
-    height: 5em;
-    width: 5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 2px solid lightgrey;
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
 }
+
+.color-chooser.selected {
+    outline: 2px solid grey;
+    outline-offset: 2px;
+}
+
+
 #picture-of-shirt{
     /* background-image: url(images/t-shirt_for_project.jpg); */
     height: 20em;
@@ -71,6 +85,9 @@
 .actual-shirt-svg{
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 .part{
     fill: grey;
@@ -91,6 +108,8 @@
 }
 #selected-part-of-shirt-text-div{
     width: 15em;
+    color: white;
+    font-family: Verdana;
 }
 #actual-shirt{
     width: 16em;
@@ -98,11 +117,7 @@
     flex-direction: row;
     border: 1px solid black;
 }
-.actual-shirt-svg{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
+
 .part-of-actual-shirt{
     width: 25%;
     height: 10em;
@@ -112,3 +127,9 @@
     background-color: grey;
 }
 
+.arrow p {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 10%;
+    color: white;
+}
