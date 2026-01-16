@@ -49,20 +49,20 @@ document.addEventListener("DOMContentLoaded", () => {
     //Mappar pris för varje produkt - Kan vara vettigt med olika maps för varje olika del
     //Eftersom i teorin kanske det finns ett fabric som delar namn med den färg tex... Osannolikt i vårt fall
     let mapCustomizationPrice = new Map();
-    mapCustomizationPrice.set(colors[0], 50);
-    mapCustomizationPrice.set(colors[1], 60);
-    mapCustomizationPrice.set(colors[2], 70);
-    mapCustomizationPrice.set(colors[3], 80);
-    mapCustomizationPrice.set(colors[4], 90);
-    mapCustomizationPrice.set(colors[5], 10);
+    mapCustomizationPrice.set(colors[0], 10);
+    mapCustomizationPrice.set(colors[1], 20);
+    mapCustomizationPrice.set(colors[2], 30);
+    mapCustomizationPrice.set(colors[3], 25);
+    mapCustomizationPrice.set(colors[4], 35);
+    mapCustomizationPrice.set(colors[5], 0);
 
-    mapCustomizationPrice.set(sizes[0], 100);
-    mapCustomizationPrice.set(sizes[1], 100);
-    mapCustomizationPrice.set(sizes[2], 100);
+    mapCustomizationPrice.set(sizes[0], 10);
+    mapCustomizationPrice.set(sizes[1], 10);
+    mapCustomizationPrice.set(sizes[2], 10);
 
-    mapCustomizationPrice.set(fabrics[0], 200);
-    mapCustomizationPrice.set(fabrics[1], 250);
-    mapCustomizationPrice.set(fabrics[2], 400);
+    mapCustomizationPrice.set(fabrics[0], 100);
+    mapCustomizationPrice.set(fabrics[1], 150);
+    mapCustomizationPrice.set(fabrics[2], 200);
 
     //Baspris
     let basePrice = 0;

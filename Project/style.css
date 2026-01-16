@@ -5,41 +5,48 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100vh;
+    background-color: rgb(228, 239, 247);
 }
 
 #middle-wrapper{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(244, 248, 251);
+    
 }
 
 #price-div{
-    width: 100%;
+    width: fit-content;
+    padding: 20px;
+    margin-top: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 5em;
+    border-radius: 10px;
     font-family: verdana;
+    background-color: white;
 }
 
 #fabric-div, #size-div{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1em;
 }
-
 
 #color-div{
     display: flex;
     flex-direction: row;
     gap: 1em;
+    width: 100%;
+    justify-content: center;
 }
+
 #part-of-shirt{
     width: 100%;
     height: 4em;
     background-color:rgb(33, 48, 63);
 }
+
 .fabric-chooser, .size-chooser{
     font-family: Verdana;
     height: 4em;
